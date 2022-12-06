@@ -1,17 +1,26 @@
 package dependency
 
-import "github.com/Guilherme415/password/controllers"
+import (
+	"github.com/Guilherme415/password/business"
+	"github.com/Guilherme415/password/controllers"
+)
 
 // Controllers
 var (
 	PasswordController controllers.IPasswordController
 )
 
+// Business
+var (
+	PasswordBusiness business.IPasswordBusiness
+)
+
 func Load() {
 	// Repositories
 
 	// Business
+	PasswordBusiness = business.NewPasswordBusiness()
 
 	// Controllers
-	PasswordController = controllers.NewPasswordController()
+	PasswordController = controllers.NewPasswordController(PasswordBusiness)
 }

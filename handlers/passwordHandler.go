@@ -6,5 +6,5 @@ import (
 )
 
 func PasswordHandler(g *gin.RouterGroup, c controllers.IPasswordController) {
-	g.GET("", c.VerifyStrongPassword)
+	g.POST("", c.VerifyStrongPassword)
 }
