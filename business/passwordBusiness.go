@@ -21,7 +21,7 @@ func (p *PasswordBusiness) VerifyStrongPassword(verifyStrongPasswordBody models.
 	verify := true
 
 	invalidRules := strongPasswordRules(verifyStrongPasswordBody)
-	if len(invalidRules) <= 0 {
+	if len(invalidRules) > 0 {
 		verify = false
 	}
 
