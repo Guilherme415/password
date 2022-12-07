@@ -3,8 +3,8 @@ package constants
 type Rules string
 
 const (
-	RuleMinLowerCase    Rules = "minLowerCase"
-	RuleMinUpperCase    Rules = "minUpperCase"
+	RuleMinLowerCase    Rules = "minLowercase"
+	RuleMinUpperCase    Rules = "minUppercase"
 	RuleMinSize         Rules = "minSize"
 	RuleMinDigit        Rules = "minDigit"
 	RuleMinSpecialChars Rules = "minSpecialChars"
