@@ -24,22 +24,13 @@ func (p *PasswordController) VerifyStrongPassword(ctx *gin.Context) {
 	verifyStrongPasswordBody := models.VerifyStrongPasswordBody{}
 	if err := ctx.BindJSON(&verifyStrongPasswordBody); err != nil {
 		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": err,
+			"message": err.Error(),
 		})
 
 		return
 	}
 
-	errors := p.passwordBusiness.VerifyStrongPassword(verifyStrongPasswordBody.Password)
-	if errors != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": errors,
-		})
+	response := p.passwordBusiness.VerifyStrongPassword(verifyStrongPasswordBody)
 
-		return
-	}
-
-	ctx.JSON(http.StatusOK, gin.H{
-		"message": "pong",
-	})
+	ctx.JSON(http.StatusOK, response)
 }

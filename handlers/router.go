@@ -6,7 +6,5 @@ import (
 )
 
 func Router(e *gin.Engine) {
-	v1 := e.Group("/v1")
-
-	PasswordHandler(v1.Group("verify"), dependency.PasswordController)
+	PasswordHandler(e.Group("verify"), dependency.PasswordController)
 }
