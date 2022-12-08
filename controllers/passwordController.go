@@ -1,6 +1,7 @@
 package controllers
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/Guilherme415/password/business"
@@ -23,8 +24,9 @@ func NewPasswordController(passwordBusiness business.IPasswordBusiness) IPasswor
 func (p *PasswordController) VerifyStrongPassword(ctx *gin.Context) {
 	verifyStrongPasswordBody := models.VerifyStrongPasswordBody{}
 	if err := ctx.BindJSON(&verifyStrongPasswordBody); err != nil {
-		ctx.JSON(http.StatusBadRequest, gin.H{
-			"message": err.Error(),
+		ctx.JSON(http.StatusBadRequest, models.Response{
+			Code:    fmt.Sprint(http.StatusBadRequest),
+			Message: err.Error(),
 		})
 
 		return
