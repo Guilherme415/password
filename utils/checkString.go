@@ -54,7 +54,7 @@ func VerifySpecialChars(paramString string, minSize int) error {
 	return nil
 }
 
-func VerifyRepetedChars(paramString string, minSize int) error {
+func VerifyRepetedChars(paramString string) error {
 	for i := range paramString {
 		if i+1 == len(paramString) {
 			break

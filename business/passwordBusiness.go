@@ -79,7 +79,7 @@ func verifyRule(password string, rule models.Rule) error {
 		}
 
 	case string(constants.RuleNoRepeted):
-		err := utils.VerifyRepetedChars(password, rule.Value)
+		err := utils.VerifyRepetedChars(password)
 		if err != nil {
 			return err
 		}
