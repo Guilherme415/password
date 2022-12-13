@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
-	config.NewServer()
+	//config.NewServer()
+
+	config.NewGraphQLServer()
 }
