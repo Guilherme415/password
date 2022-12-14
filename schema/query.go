@@ -1,11 +1,13 @@
 package schema
 
-import "github.com/graphql-go/graphql"
+import (
+	"github.com/graphql-go/graphql"
+)
 
 func Schema() graphql.Fields {
 	return graphql.Fields{
 		"verify": &graphql.Field{
-			Type: graphql.String,
+			Type: VerifyStrongPasswordResponseType,
 			Args: graphql.FieldConfigArgument{
 				"password": &graphql.ArgumentConfig{
 					Type: graphql.String,
@@ -30,3 +32,17 @@ var rulesQraphQLType = graphql.NewInputObject(graphql.InputObjectConfig{
 		},
 	},
 })
+
+var VerifyStrongPasswordResponseType = graphql.NewObject(
+	graphql.ObjectConfig{
+		Name: "Product",
+		Fields: graphql.Fields{
+			"verify": &graphql.Field{
+				Type: graphql.Boolean,
+			},
+			"noMatch": &graphql.Field{
+				Type: graphql.NewList(graphql.String),
+			},
+		},
+	},
+)
