@@ -9,6 +9,7 @@ import (
 	"github.com/graphql-go/handler"
 )
 
+// Gerando servidor GraphQL na porta :8080 e na rota "/graphql"
 func NewGraphQLServer() {
 	// Schema
 	fields := schema.Schema()
@@ -22,13 +23,13 @@ func NewGraphQLServer() {
 		log.Fatalf("failed to create new schema, error: %v", err)
 	}
 
-	h := handler.New(&handler.Config{
+	graphQLHandler := handler.New(&handler.Config{
 		Schema:     &schema,
 		Pretty:     true,
 		GraphiQL:   false,
 		Playground: true,
 	})
 
-	http.Handle("/graphql", h)
+	http.Handle("/graphql", graphQLHandler)
 	http.ListenAndServe(":8080", nil)
 }

@@ -6,6 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Gerando servidor Rest na porta :8080
 func NewRestServer() {
 	r := gin.Default()
 

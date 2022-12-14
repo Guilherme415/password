@@ -4,10 +4,12 @@ import (
 	"github.com/graphql-go/graphql"
 )
 
+// Gerando os Schemas para GraphQL
 func Schema() graphql.Fields {
 	return graphql.Fields{
+		// Query "verify"
 		"verify": &graphql.Field{
-			Type: VerifyStrongPasswordResponseType,
+			Type: verifyStrongPasswordResponseType,
 			Args: graphql.FieldConfigArgument{
 				"password": &graphql.ArgumentConfig{
 					Type: graphql.String,
@@ -20,29 +22,3 @@ func Schema() graphql.Fields {
 		},
 	}
 }
-
-var rulesQraphQLType = graphql.NewInputObject(graphql.InputObjectConfig{
-	Name: "Track",
-	Fields: graphql.InputObjectConfigFieldMap{
-		"rule": &graphql.InputObjectFieldConfig{
-			Type: graphql.String,
-		},
-		"value": &graphql.InputObjectFieldConfig{
-			Type: graphql.Int,
-		},
-	},
-})
-
-var VerifyStrongPasswordResponseType = graphql.NewObject(
-	graphql.ObjectConfig{
-		Name: "Product",
-		Fields: graphql.Fields{
-			"verify": &graphql.Field{
-				Type: graphql.Boolean,
-			},
-			"noMatch": &graphql.Field{
-				Type: graphql.NewList(graphql.String),
-			},
-		},
-	},
-)

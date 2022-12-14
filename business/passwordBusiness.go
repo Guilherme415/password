@@ -17,6 +17,9 @@ func NewPasswordBusiness() IPasswordBusiness {
 	return &PasswordBusiness{}
 }
 
+// Função que recebe uma senha e as regras
+// Retorna se a senha é forte (verify: boolean)
+// Quando a senha é fraca, em "noMatch", é retornado o que faltou para ficar forte
 func (p *PasswordBusiness) VerifyStrongPassword(verifyStrongPasswordBody models.VerifyStrongPasswordBody) models.VerifyStrongPasswordResponse {
 	verify := true
 
@@ -33,6 +36,9 @@ func (p *PasswordBusiness) VerifyStrongPassword(verifyStrongPasswordBody models.
 	return response
 }
 
+// Função que recebe uma senha e as regras
+// Retorna o que faltou para senha ficar forte
+// Caso retornado nada ([]), a senha é forte
 func strongPasswordRules(verifyStrongPasswordBody models.VerifyStrongPasswordBody) []string {
 	invalidRules := []string{}
 
@@ -46,6 +52,10 @@ func strongPasswordRules(verifyStrongPasswordBody models.VerifyStrongPasswordBod
 	return invalidRules
 }
 
+// Recebe uma senha e uma regra
+// Retorna se a senha cumpre a regra específica
+// Caso cumpra, retornará nil
+// Caso não cumpra, retornará o motivo
 func verifyRule(password string, rule models.Rule) error {
 	switch rule.Rule {
 	case string(constants.RuleMinSize):

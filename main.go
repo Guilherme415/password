@@ -5,7 +5,10 @@ import (
 )
 
 func main() {
+
+	// Inicia servidor GraphQL
 	config.NewGraphQLServer()
 
+	// Inicia servidor Rest
 	//config.NewRestServer()
 }

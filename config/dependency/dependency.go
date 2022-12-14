@@ -15,6 +15,7 @@ var (
 	PasswordBusiness business.IPasswordBusiness
 )
 
+// Injetando as dependencias da aplicação
 func Load() {
 	// Repositories
 

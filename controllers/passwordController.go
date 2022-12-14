@@ -21,6 +21,18 @@ func NewPasswordController(passwordBusiness business.IPasswordBusiness) IPasswor
 	return &PasswordController{passwordBusiness}
 }
 
+// Rota POST /verify
+// Body: {
+//	"password": string,
+//	"rules": [
+//		{"rule": string,"value": int}
+//	]
+// }
+// StatusCodes possíveis: 400 (BadRequest), 200 (Ok)
+// Response: {
+//	"verify": boolean,
+//	"noMatch": [string]
+// }
 func (p *PasswordController) VerifyStrongPassword(ctx *gin.Context) {
 	verifyStrongPasswordBody := models.VerifyStrongPasswordBody{}
 	if err := ctx.BindJSON(&verifyStrongPasswordBody); err != nil {

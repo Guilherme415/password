@@ -5,6 +5,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+// Rotas da controller Password
 func PasswordHandler(g *gin.RouterGroup, c controllers.IPasswordController) {
 	g.POST("", c.VerifyStrongPassword)
 }
