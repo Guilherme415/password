@@ -1,8 +1,8 @@
-# password
+# Password
 
 # Sobre o projeto
 
-password é uma api construída para ter rotas que auxiliam sobre senhas.
+Password é uma api construída para ter rotas que auxiliam sobre senhas.
 
 A API atualmente tem uma única rota que verifica se a senha é forte ou não.
 
