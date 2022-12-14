@@ -13,6 +13,8 @@ coverage:
 	@echo "Coverage completed successfully"
 
 install:
+	go get
+	go mod tidy
 	go mod vendor
 
 vendor:
