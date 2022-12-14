@@ -6,7 +6,7 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-func NewServer() {
+func NewRestServer() {
 	r := gin.Default()
 
 	dependency.Load()
