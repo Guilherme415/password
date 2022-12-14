@@ -54,3 +54,11 @@ Inicie o projeto, url base: http://localhost:8080/graphql
 Descomente a "config.NewRestServer()" no arquivo main.go e comente a linha config.NewGraphQLServer()
 
 Inicie o projeto, url base: http://localhost:8080
+
+# Docker
+
+Para testa-lo local execute:
+
+docker build . -t [nome-desejado]
+
+docuker run -p 8080:8080 -d [nome-desejado]
